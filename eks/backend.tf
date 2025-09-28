@@ -1,18 +1,9 @@
-terraform {
-  required_version = "~> 1.13.3"
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.49.0"
-    }
-  }
-  backend "s3" {
-    bucket         = "pinco"
-    region         = "ap-southeast-1"
-    key            = "eks/terraform.tfstate"
-    dynamodb_table = "Lock-Files"
-    encrypt        = true
-  }
+backend "s3" {
+  bucket         = "pinco"
+  region         = "ap-southeast-1"
+  key            = "eks/terraform.tfstate"
+  dynamodb_table = "Lock-Files"
+  encrypt        = true
 }
 
 provider "aws" {
